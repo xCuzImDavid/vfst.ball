@@ -4,5 +4,7 @@ Nach einigen Änderungen hat es sich der Code so weit entwickelt, dass aus ihm n
 Aufgeteilt ist der Code in verschiedene JavaScrpit Dateien, eine Hauptdatei und 2 Dateien für Klassen, die durch eine HTML-Datei zusammengebunden sind.
 
 Sketch.js --> Die Hauptdatei in der alles eingebunden ist
-src\ball.js --> Die Datei, in der der Ball und die Physik des Balles definiert ist
-src\paddel
+
+src/ball.js --> Die Datei, in der der Ball und die Physik des Balles definiert ist
+
+src/paddle.je --> In der der Paddel definiert ist
