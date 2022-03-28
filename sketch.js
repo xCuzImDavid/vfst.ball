@@ -6,10 +6,12 @@ function setup() {
     cwidth = 800;
     createCanvas(cwidth, cheight);
     frameRate(40);
+    paddle = new Paddle(createVector(50, 300), 100, createVector(5, -5));
+    paddlegegner = new Paddle(createVector(750, 300), 100, createVector(5, -5));
     balls = [];
-    for( x=0; x<= 10; x++)
+    for( x=0; x<= 0; x++)
     {
-        balls.push( new ball( createVector(10*x+40, 10*x+40), 10, createVector( x+1, -x+1)));
+        balls.push( new ball( createVector(10*x+40, 10*x+40), 10, createVector( x+5, -x+5)));
     }
 }
 
@@ -45,9 +47,39 @@ function draw() {
         }
     }
 
+    for ( x=0; x < balls.length; x++ )
+    {
+        b = balls [x];
+            if (paddle.collideswithball(b)) {
+                b.momentum.x = -1 * b.momentum.x;
+                b.momentum.y = -1 * b.momentum.y;
+            }
+            if (paddlegegner.collideswithball(b)) {
+                b.momentum.x = -1 * b.momentum.x;
+                b.momentum.y = -1 * b.momentum.y;
+            }
+    }
+
     for( x=0; x < balls.length; x++ )
     {
         b = balls[x];
         b.draw();
+    }
+
+    paddlegegner.draw();
+    paddle.draw();
+}
+function keyPressed(){
+    if (keyCode === UP_ARROW) {
+        paddle.pos.y = paddle.pos.y - 10
+    }
+    if (keyCode === DOWN_ARROW) {
+        paddle.pos.y = paddle.pos.y + 10
+    }
+    if (key === 'w') {
+        paddlegegner.pos.y = paddlegegner.pos.y - 10
+    }
+    if (key === 's') {
+        paddlegegner.pos.y = paddlegegner.pos.y + 10
     }
 }
