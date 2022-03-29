@@ -16,7 +16,7 @@ class ball {
     collidesy(canvasheight) {
         return (this.pos.y < this.radius) || (this.pos.y > canvasheight - this.radius);
     }
-    collideswith( ball ){
+    collideswith(ball){
         return dist( this.pos.x, this.pos.y, ball.pos.x, ball.pos.y) <= this.radius + ball.radius;
     }
 }
